@@ -81,11 +81,6 @@ img {
   place-items: center;
   width: 168px;
   height: 96px;
-  padding: 8px;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: 0 10px 26px rgba(15, 64, 91, 0.08);
 }
 
 .brand-mark img {
@@ -541,7 +536,6 @@ img {
   .brand-mark {
     width: 128px;
     height: 74px;
-    padding: 7px;
   }
 
   .brand-mark img {
