@@ -15,7 +15,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-const navItems = ["Visit", "Pastor", "Ministries", "Sermons", "Giving"];
+const navItems = ["Visit", "Pastor", "Ministries", "Events", "Sermons", "Giving"];
 
 const services = [
   {
@@ -160,21 +160,28 @@ export default function Home() {
         </section>
 
         <section className="section pastor-section" id="pastor">
-          <div className="pastor-portrait" aria-hidden="true">
-            <span>PN</span>
+          <div className="pastor-portrait">
+            <Image
+              src="/477439082_1066798418819285_8203857255166104665_n.jpg"
+              alt="Pastor Ryan Buja with his wife Gena and their sons Gabe, Andrew, Eli, and Micah"
+              width={770}
+              height={770}
+              sizes="(max-width: 900px) 100vw, 36vw"
+            />
           </div>
           <div className="pastor-copy">
             <p className="eyebrow">Meet Our Pastor</p>
-            <h2>Pastor Name</h2>
+            <h2>Pastor Ryan Buja</h2>
             <p className="pastor-role">Senior Pastor</p>
             <p>
-              Pastor placeholder bio goes here. This space can introduce his family,
-              testimony, years of ministry, and heart for preaching the Bible and caring
-              for the people of Bethel Baptist Church.
+              Pastor Ryan serves Bethel alongside his wife <strong>Gena</strong>,
+              who also serves the church as our Church and Financial Secretary,
+              and their four sons &mdash; Gabe, Andrew, Eli, and Micah.
             </p>
             <p>
-              Add a warm welcome note here for guests who are visiting for the first
-              time, along with any personal details the church wants to highlight.
+              Whether you&apos;ve been walking with Christ for years or you&apos;re stepping
+              into a church for the first time, the Buja family and the rest of the
+              Bethel church family would love to welcome you on a Sunday morning.
             </p>
           </div>
         </section>
@@ -193,6 +200,35 @@ export default function Home() {
                 <p>{service.detail}</p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="section events" id="events">
+          <div className="section-heading">
+            <p className="eyebrow">Upcoming Events</p>
+            <h2>What&apos;s happening at Bethel</h2>
+          </div>
+          <div className="fb-embed">
+            <iframe
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbethelbaptistlivoniami&tabs=events&width=500&height=720&hide_cover=true&show_facepile=false&small_header=true&adapt_container_width=true"
+              title="Bethel Baptist Church upcoming events"
+              width={500}
+              height={720}
+              loading="lazy"
+              scrolling="no"
+              allow="encrypted-media"
+              allowFullScreen
+            />
+          </div>
+          <div className="embed-cta">
+            <a
+              className="button quiet"
+              href="https://www.facebook.com/bethelbaptistlivoniami/events"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View all events on Facebook <ArrowRight size={18} />
+            </a>
           </div>
         </section>
 
@@ -235,25 +271,84 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section action-band" id="sermons">
-          <div>
-            <p className="eyebrow">Livestream and Sermons</p>
-            <h2>Follow along when you&apos;re away.</h2>
-            <p>
-              Services are streamed on the Bethel Baptist Livonia Facebook page, with
-              sermon access kept prominent for returning visitors.
-            </p>
+        <section className="section sermons" id="sermons">
+          <div className="section-heading">
+            <p className="eyebrow">Sermons &amp; Livestream</p>
+            <h2>Watch with us, wherever you are.</h2>
           </div>
-          <div className="action-buttons">
-            <a className="button primary" href="https://www.facebook.com/bethelbaptistlivoniami">
-              Facebook Live <PlayCircle size={18} />
+          <div className="fb-embed">
+            <iframe
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbethelbaptistlivoniami&tabs=timeline&width=500&height=720&hide_cover=true&show_facepile=false&small_header=true&adapt_container_width=true"
+              title="Bethel Baptist Church recent sermons and livestreams"
+              width={500}
+              height={720}
+              loading="lazy"
+              scrolling="no"
+              allow="encrypted-media"
+              allowFullScreen
+            />
+          </div>
+          <div className="embed-cta">
+            <a
+              className="button primary"
+              href="https://www.facebook.com/bethelbaptistlivoniami/live"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Watch live on Facebook <PlayCircle size={18} />
             </a>
-            <a className="button quiet" href="#giving" id="giving">
-              Giving <ArrowRight size={18} />
+            <a
+              className="button quiet"
+              href="https://www.facebook.com/bethelbaptistlivoniami/videos"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Past sermons <ArrowRight size={18} />
+            </a>
+          </div>
+        </section>
+
+        <section className="section giving" id="giving">
+          <div className="section-heading">
+            <p className="eyebrow">Generosity</p>
+            <h2>Give to the ministry of Bethel.</h2>
+          </div>
+          <div className="giving-frame">
+            <iframe
+              src="https://secure.myvanco.com/L-Z32K/home"
+              title="Bethel Baptist Church online giving"
+              loading="lazy"
+              allow="payment"
+            />
+          </div>
+          <div className="embed-cta">
+            <a
+              className="button quiet"
+              href="https://secure.myvanco.com/L-Z32K/home"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open giving page in a new tab <ArrowRight size={18} />
             </a>
           </div>
         </section>
       </main>
+
+      <section className="footer-banner" aria-label="Bethel Baptist Church exterior">
+        <Image
+          className="footer-banner-image"
+          src="/558836764_1267331415432650_2075568322709960148_n.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+        />
+        <div className="footer-banner-overlay" />
+        <div className="footer-banner-inner">
+          <p className="eyebrow">Come Visit Us</p>
+          <h2>We&apos;d love to see you on Sunday.</h2>
+          <p>29475 Six Mile Rd. &middot; Livonia, MI 48152</p>
+        </div>
+      </section>
 
       <footer className="site-footer">
         <div>

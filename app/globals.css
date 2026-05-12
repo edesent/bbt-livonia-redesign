@@ -339,40 +339,17 @@ img {
 }
 
 .pastor-portrait {
-  position: relative;
-  display: grid;
-  min-height: 420px;
-  place-items: center;
   overflow: hidden;
   border-radius: var(--radius);
-  background:
-    linear-gradient(160deg, rgba(31, 111, 151, 0.2), rgba(114, 85, 201, 0.32)),
-    url("/sanctuary-worship.jpg") center / cover;
   box-shadow: var(--shadow);
-  isolation: isolate;
 }
 
-.pastor-portrait::before {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background: rgba(8, 34, 50, 0.46);
-  z-index: -1;
-}
-
-.pastor-portrait span {
-  display: grid;
-  width: 132px;
-  height: 132px;
-  place-items: center;
-  border: 2px solid rgba(255, 255, 255, 0.55);
-  border-radius: 50%;
-  color: var(--white);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 3rem;
-  font-weight: 900;
-  background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(10px);
+.pastor-portrait img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 25%;
 }
 
 .pastor-copy {
@@ -541,6 +518,99 @@ img {
   width: 70px;
   height: 40px;
   object-fit: contain;
+}
+
+.fb-embed {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0 28px;
+}
+
+.fb-embed iframe {
+  width: 100%;
+  max-width: 500px;
+  height: 720px;
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: var(--white);
+}
+
+.embed-cta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sermons {
+  width: 100%;
+  max-width: none;
+  padding-right: max(20px, calc((100vw - 1240px) / 2));
+  padding-left: max(20px, calc((100vw - 1240px) / 2));
+  background: #eaf5f9;
+}
+
+.giving-frame {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0 28px;
+}
+
+.giving-frame iframe {
+  width: 100%;
+  max-width: 760px;
+  height: 820px;
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: var(--white);
+}
+
+.footer-banner {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 360px;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--white);
+}
+
+.footer-banner-image {
+  object-fit: cover;
+  object-position: center;
+  z-index: -3;
+}
+
+.footer-banner-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(6, 25, 38, 0.78), rgba(12, 51, 75, 0.5) 60%, rgba(6, 25, 38, 0.66));
+}
+
+.footer-banner-inner {
+  width: min(1240px, calc(100% - 40px));
+  margin: auto;
+  padding: 60px 0;
+}
+
+.footer-banner-inner h2 {
+  margin: 0;
+  color: var(--white);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.footer-banner-inner p:not(.eyebrow) {
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
 @media (max-width: 1000px) {
