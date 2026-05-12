@@ -292,6 +292,7 @@ img {
 }
 
 .welcome h2,
+.pastor-copy h2,
 .section-heading h2,
 .visit-panel h2,
 .action-band h2 {
@@ -304,6 +305,7 @@ img {
 }
 
 .welcome p:not(.eyebrow),
+.pastor-copy p,
 .action-band p,
 .visit-list p,
 .service-card p,
@@ -326,6 +328,66 @@ img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+}
+
+.pastor-section {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+  padding-top: 0;
+}
+
+.pastor-portrait {
+  position: relative;
+  display: grid;
+  min-height: 420px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(160deg, rgba(31, 111, 151, 0.2), rgba(114, 85, 201, 0.32)),
+    url("/sanctuary-worship.jpg") center / cover;
+  box-shadow: var(--shadow);
+  isolation: isolate;
+}
+
+.pastor-portrait::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: rgba(8, 34, 50, 0.46);
+  z-index: -1;
+}
+
+.pastor-portrait span {
+  display: grid;
+  width: 132px;
+  height: 132px;
+  place-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  color: var(--white);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3rem;
+  font-weight: 900;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+.pastor-copy {
+  max-width: 760px;
+}
+
+.pastor-copy h2 {
+  margin-bottom: 10px;
+}
+
+.pastor-role {
+  margin: 0 0 22px;
+  color: var(--wood) !important;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .services {
@@ -502,6 +564,7 @@ img {
   .service-grid,
   .ministry-grid,
   .welcome,
+  .pastor-section,
   .visit-panel {
     grid-template-columns: 1fr;
   }

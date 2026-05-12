@@ -15,7 +15,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-const navItems = ["Visit", "Ministries", "Sermons", "Giving"];
+const navItems = ["Visit", "Pastor", "Ministries", "Sermons", "Giving"];
 
 const services = [
   {
@@ -156,6 +156,26 @@ export default function Home() {
           </div>
           <div className="photo-panel">
             <Image src="/church-family.jpeg" alt="" width={710} height={709} sizes="(max-width: 900px) 100vw, 36vw" />
+          </div>
+        </section>
+
+        <section className="section pastor-section" id="pastor">
+          <div className="pastor-portrait" aria-hidden="true">
+            <span>PN</span>
+          </div>
+          <div className="pastor-copy">
+            <p className="eyebrow">Meet Our Pastor</p>
+            <h2>Pastor Name</h2>
+            <p className="pastor-role">Senior Pastor</p>
+            <p>
+              Pastor placeholder bio goes here. This space can introduce his family,
+              testimony, years of ministry, and heart for preaching the Bible and caring
+              for the people of Bethel Baptist Church.
+            </p>
+            <p>
+              Add a warm welcome note here for guests who are visiting for the first
+              time, along with any personal details the church wants to highlight.
+            </p>
           </div>
         </section>
 
