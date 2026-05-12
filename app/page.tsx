@@ -73,11 +73,13 @@ export default function Home() {
         <nav className="nav-shell" aria-label="Main navigation">
           <Link className="brand" href="/">
             <span className="brand-mark">
-              <Image src="/bethel-logo.jpeg" alt="" width={140} height={80} priority />
-            </span>
-            <span className="brand-copy">
-              <strong>Bethel Baptist Church</strong>
-              <small>Livonia, Michigan</small>
+              <Image
+                src="/bethel-logo.jpeg"
+                alt="Bethel Baptist Church"
+                width={234}
+                height={133}
+                priority
+              />
             </span>
           </Link>
           <div className="desktop-nav">
@@ -236,7 +238,6 @@ export default function Home() {
       <footer className="site-footer">
         <div>
           <Image src="/bethel-logo.jpeg" alt="Bethel Baptist Church" width={105} height={60} />
-          <p>Bethel Baptist Church</p>
         </div>
         <address>
           <MapPin size={18} />

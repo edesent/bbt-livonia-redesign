@@ -73,16 +73,15 @@ img {
 .brand {
   display: flex;
   align-items: center;
-  gap: 14px;
   min-width: 0;
 }
 
 .brand-mark {
   display: grid;
   place-items: center;
-  width: 86px;
-  height: 52px;
-  padding: 6px;
+  width: 168px;
+  height: 96px;
+  padding: 8px;
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -90,26 +89,9 @@ img {
 }
 
 .brand-mark img {
-  width: 70px;
-  height: 40px;
+  width: 150px;
+  height: auto;
   object-fit: contain;
-}
-
-.brand-copy {
-  display: grid;
-  line-height: 1.12;
-}
-
-.brand-copy strong {
-  color: var(--blue-dark);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.15rem;
-}
-
-.brand-copy small {
-  color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 700;
 }
 
 .desktop-nav {
@@ -504,11 +486,6 @@ img {
   object-fit: contain;
 }
 
-.site-footer p {
-  margin: 0;
-  color: var(--blue-dark);
-}
-
 @media (max-width: 1000px) {
   .desktop-nav {
     display: none;
@@ -561,16 +538,14 @@ img {
     width: min(100% - 28px, 1240px);
   }
 
-  .brand-copy strong {
-    font-size: 0.98rem;
-  }
-
-  .brand-copy small {
-    display: none;
-  }
-
   .brand-mark {
-    width: 76px;
+    width: 128px;
+    height: 74px;
+    padding: 7px;
+  }
+
+  .brand-mark img {
+    width: 112px;
   }
 
   .hero {
