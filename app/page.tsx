@@ -74,7 +74,7 @@ export default function Home() {
           <Link className="brand" href="/">
             <span className="brand-mark">
               <Image
-                src="/bethel-logo.jpeg"
+                src="/bethel_baptist_church_transparent_purple.png"
                 alt="Bethel Baptist Church"
                 width={234}
                 height={133}
@@ -237,7 +237,7 @@ export default function Home() {
 
       <footer className="site-footer">
         <div>
-          <Image src="/bethel-logo.jpeg" alt="Bethel Baptist Church" width={105} height={60} />
+          <Image src="/bethel_baptist_church_transparent_purple.png" alt="Bethel Baptist Church" width={105} height={60} />
         </div>
         <address>
           <MapPin size={18} />
