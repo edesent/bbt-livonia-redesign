@@ -6,16 +6,39 @@ import {
   Clock3,
   HeartHandshake,
   MapPin,
-  Menu,
   Music2,
-  Phone,
   PlayCircle,
   UsersRound,
 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
-const navItems = ["Visit", "Pastor", "Ministries", "Events", "Sermons", "Giving"];
+import { SiteFooter } from "./_components/SiteFooter";
+import { SiteHeader } from "./_components/SiteHeader";
+import eventsData from "./data/events.json";
+
+type ChurchEvent = {
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  description: string;
+};
+
+const events: ChurchEvent[] = eventsData;
+
+function formatEventDate(iso: string) {
+  const [year, month, day] = iso.split("-").map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  const monthShort = date.toLocaleString("en-US", {
+    month: "short",
+    timeZone: "UTC",
+  });
+  return {
+    month: monthShort.toUpperCase(),
+    day: String(day).padStart(2, "0"),
+    year,
+  };
+}
 
 const services = [
   {
@@ -65,44 +88,7 @@ const ministries = [
 export default function Home() {
   return (
     <>
-      <header className="site-header">
-        <div className="topbar">
-          <span>29475 Six Mile Rd. Livonia, MI 48152</span>
-          <a href="tel:17345253664">(734) 525-3664</a>
-        </div>
-        <nav className="nav-shell" aria-label="Main navigation">
-          <Link className="brand" href="/">
-            <span className="brand-mark">
-              <Image
-                src="/bethel_baptist_church_transparent_purple.png"
-                alt="Bethel Baptist Church"
-                width={234}
-                height={133}
-                priority
-              />
-            </span>
-          </Link>
-          <div className="desktop-nav">
-            {navItems.map((item) => (
-              <a href={`#${item.toLowerCase()}`} key={item}>
-                {item}
-              </a>
-            ))}
-          </div>
-          <details className="mobile-nav">
-            <summary aria-label="Open navigation">
-              <Menu size={22} />
-            </summary>
-            <div>
-              {navItems.map((item) => (
-                <a href={`#${item.toLowerCase()}`} key={item}>
-                  {item}
-                </a>
-              ))}
-            </div>
-          </details>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <main>
         <section className="hero">
@@ -126,7 +112,7 @@ export default function Home() {
               <a className="button primary" href="#visit">
                 Plan a Visit <ArrowRight size={18} />
               </a>
-              <a className="button secondary" href="#sermons">
+              <a className="button secondary" href="/sermons">
                 Watch Online <PlayCircle size={18} />
               </a>
             </div>
@@ -208,27 +194,29 @@ export default function Home() {
             <p className="eyebrow">Upcoming Events</p>
             <h2>What&apos;s happening at Bethel</h2>
           </div>
-          <div className="fb-embed">
-            <iframe
-              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbethelbaptistlivoniami&tabs=events&width=500&height=720&hide_cover=true&show_facepile=false&small_header=true&adapt_container_width=true"
-              title="Bethel Baptist Church upcoming events"
-              width={500}
-              height={720}
-              loading="lazy"
-              scrolling="no"
-              allow="encrypted-media"
-              allowFullScreen
-            />
-          </div>
-          <div className="embed-cta">
-            <a
-              className="button quiet"
-              href="https://www.facebook.com/bethelbaptistlivoniami/events"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View all events on Facebook <ArrowRight size={18} />
-            </a>
+          <div className="event-list">
+            {events.map((event) => {
+              const { month, day } = formatEventDate(event.date);
+              return (
+                <article className="event-card" key={`${event.date}-${event.title}`}>
+                  <div className="event-date" aria-hidden="true">
+                    <span className="event-month">{month}</span>
+                    <span className="event-day">{day}</span>
+                  </div>
+                  <div className="event-body">
+                    <h3>{event.title}</h3>
+                    <p className="event-meta">
+                      <Clock3 size={16} /> {event.time}
+                      <span className="event-meta-sep" aria-hidden="true">
+                        &middot;
+                      </span>
+                      <MapPin size={16} /> {event.location}
+                    </p>
+                    <p className="event-description">{event.description}</p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
 
@@ -270,99 +258,9 @@ export default function Home() {
             </p>
           </div>
         </section>
-
-        <section className="section sermons" id="sermons">
-          <div className="section-heading">
-            <p className="eyebrow">Sermons &amp; Livestream</p>
-            <h2>Watch with us, wherever you are.</h2>
-          </div>
-          <div className="fb-embed">
-            <iframe
-              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbethelbaptistlivoniami&tabs=timeline&width=500&height=720&hide_cover=true&show_facepile=false&small_header=true&adapt_container_width=true"
-              title="Bethel Baptist Church recent sermons and livestreams"
-              width={500}
-              height={720}
-              loading="lazy"
-              scrolling="no"
-              allow="encrypted-media"
-              allowFullScreen
-            />
-          </div>
-          <div className="embed-cta">
-            <a
-              className="button primary"
-              href="https://www.facebook.com/bethelbaptistlivoniami/live"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Watch live on Facebook <PlayCircle size={18} />
-            </a>
-            <a
-              className="button quiet"
-              href="https://www.facebook.com/bethelbaptistlivoniami/videos"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Past sermons <ArrowRight size={18} />
-            </a>
-          </div>
-        </section>
-
-        <section className="section giving" id="giving">
-          <div className="section-heading">
-            <p className="eyebrow">Generosity</p>
-            <h2>Give to the ministry of Bethel.</h2>
-          </div>
-          <div className="giving-frame">
-            <iframe
-              src="https://secure.myvanco.com/L-Z32K/home"
-              title="Bethel Baptist Church online giving"
-              loading="lazy"
-              allow="payment"
-            />
-          </div>
-          <div className="embed-cta">
-            <a
-              className="button quiet"
-              href="https://secure.myvanco.com/L-Z32K/home"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open giving page in a new tab <ArrowRight size={18} />
-            </a>
-          </div>
-        </section>
       </main>
 
-      <section className="footer-banner" aria-label="Bethel Baptist Church exterior">
-        <Image
-          className="footer-banner-image"
-          src="/558836764_1267331415432650_2075568322709960148_n.jpg"
-          alt=""
-          fill
-          sizes="100vw"
-        />
-        <div className="footer-banner-overlay" />
-        <div className="footer-banner-inner">
-          <p className="eyebrow">Come Visit Us</p>
-          <h2>We&apos;d love to see you on Sunday.</h2>
-          <p>29475 Six Mile Rd. &middot; Livonia, MI 48152</p>
-        </div>
-      </section>
-
-      <footer className="site-footer">
-        <div>
-          <Image src="/bethel_baptist_church_transparent_purple.png" alt="Bethel Baptist Church" width={105} height={60} />
-        </div>
-        <address>
-          <MapPin size={18} />
-          29475 Six Mile Rd. Livonia, MI 48152
-        </address>
-        <a href="tel:17345253664">
-          <Phone size={18} />
-          (734) 525-3664
-        </a>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

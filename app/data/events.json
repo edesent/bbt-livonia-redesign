@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Trunk or Treat",
+    "date": "2026-10-24",
+    "time": "6:00 - 8:00 PM",
+    "location": "Church Parking Lot",
+    "description": "A family-friendly evening of candy, games, and decorated trunks. Bring the whole neighborhood."
+  },
+  {
+    "title": "Book of Revelation Study",
+    "date": "2026-05-13",
+    "time": "7:00 PM",
+    "location": "Fellowship Hall",
+    "description": "Our Wednesday evening verse-by-verse study through the book of Revelation continues."
+  },
+  {
+    "title": "Men's Breakfast",
+    "date": "2026-06-07",
+    "time": "8:00 AM",
+    "location": "Fellowship Hall",
+    "description": "All the men of Bethel are invited for breakfast, fellowship, and a short devotional."
+  },
+  {
+    "title": "Vacation Bible School",
+    "date": "2026-07-13",
+    "time": "6:00 - 8:30 PM Nightly",
+    "location": "Church Campus",
+    "description": "A week of singing, lessons, crafts, and games for kids preschool through 6th grade."
+  },
+  {
+    "title": "Baptism Sunday",
+    "date": "2026-08-02",
+    "time": "11:00 AM",
+    "location": "Main Auditorium",
+    "description": "Celebrating new believers as they publicly identify with Christ in baptism."
+  },
+  {
+    "title": "Christmas Eve Service",
+    "date": "2026-12-24",
+    "time": "6:00 PM",
+    "location": "Main Auditorium",
+    "description": "A candlelight service of carols, Scripture, and a message of the Savior's birth."
+  }
+]
